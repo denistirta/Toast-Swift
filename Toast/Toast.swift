@@ -412,11 +412,6 @@ public extension UIView {
      @return The newly created toast view
     */
     func toastViewForMessage(_ message: String?, title: String?, image: UIImage?, style: ToastStyle) throws -> UIView {
-        // sanity
-//        guard message != nil || title != nil || image != nil else {
-//            throw ToastError.missingParameters
-//        }
-        
         var messageLabel: UILabel?
         var titleLabel: UILabel?
         var imageView: UIImageView?
@@ -433,7 +428,7 @@ public extension UIView {
             wrapperView.layer.shadowOffset = style.shadowOffset
         }
         
-        if let image = image {
+        if image != nil {
             imageView = UIImageView(image: image)
             imageView?.contentMode = .scaleAspectFit
             imageView?.frame = CGRect(x: style.horizontalPadding, y: style.verticalPadding, width: style.imageSize.width, height: style.imageSize.height)
