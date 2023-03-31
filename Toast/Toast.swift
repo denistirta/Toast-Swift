@@ -465,7 +465,7 @@ public extension UIView {
             }
         }
         
-        if !message?.isEmpty ?? false {
+        if !(message?.isEmpty ?? true) {
             messageLabel = UILabel()
             messageLabel?.text = message
             messageLabel?.numberOfLines = style.messageNumberOfLines
